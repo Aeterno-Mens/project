@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+//функция сохранения файла заметок с названием вводимым в приложении
 void MainWindow::on_save_file_clicked(const QString &path)
 {
     if(ui->sf_name->toPlainText()!=""){
@@ -56,6 +56,7 @@ void MainWindow::on_save_file_clicked(const QString &path)
     }
 }
 
+//функция открытия файла заметок
 void MainWindow::load_file(const QString &path)
 {
     s_list.clear();
@@ -101,7 +102,7 @@ void MainWindow::on_add_note_clicked()
     QString name=ui->note_name->toPlainText();
     QString input=ui->note_input->toPlainText();
 
-    if(name=="" || input=="" || name==" " || input==" ")
+    if(name=="" || input=="")
     {
         return;
     }
@@ -169,7 +170,7 @@ void MainWindow::on_search_input_textChanged(const QString &arg1)
     ui->notes_list->clear();
     ui->notes_list->addItems(s_list.filter(rx));
 }
-
+//функция получения пути к выбранному для загрузки файлу
 void MainWindow::open_notes()
 {
     QString toOpen = QFileDialog::getOpenFileName(this, ("Open Notes"), "/home", ("Notes Files (*.txt)"));
