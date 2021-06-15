@@ -35,8 +35,8 @@ void MainWindow::on_save_file_clicked()
         for(auto i = 0; i <s_list.size(); i++)
         {
             QString text=s_list[i];
-            value<<text+"\n"+"  ";
-            value<<note.value(text)+"\n";
+            value<<text+"\n"+"¬"+"\n";
+            value<<note.value(text)+"\n"+"¬"+"\n";
         }
 
         file.close();
@@ -76,18 +76,16 @@ void MainWindow::load_file(const QString &path)
         {
             line2 = line1.simplified();
             line1 = value.readLine();
-
-            while(line1[0].isSpace())
+            line1 = value.readLine();
+            while(line1!="¬")
             {
-                line3 += line1;
+                line3 += line1+'\n';
                 line1 = value.readLine();
-
-                if(line1.isEmpty())
-                break;
             }
             s_list.append(line2);
-            note.insert(line2, line3.simplified());
+            note.insert(line2, line3);
             line3 = "";
+            line1 = value.readLine();
         }
         ui->notes_list->addItems(s_list);
         file.close();
