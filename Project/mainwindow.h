@@ -20,7 +20,7 @@ public slots:
     void open_notes();
 
 private slots:
-    void on_save_file_clicked(const QString &path);
+    void on_save_file_clicked();
 
     void load_file(const QString &path);
 

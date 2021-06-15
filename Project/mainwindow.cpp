@@ -21,10 +21,11 @@ MainWindow::~MainWindow()
 }
 
 //функция сохранения файла заметок с названием вводимым в приложении
-void MainWindow::on_save_file_clicked(const QString &path)
+void MainWindow::on_save_file_clicked()
 {
-    if(ui->sf_name->toPlainText()!=""){
 
+    if(ui->sf_name->text()!=""){
+    QString path = QCoreApplication::applicationDirPath()+"/" + ui->sf_name->text()+".txt";
     QFile file(path);
     QTextStream value (&file);
 
@@ -99,10 +100,10 @@ void MainWindow::load_file(const QString &path)
 /*функция добавления заметки в map и виджет, для последующей работы*/
 void MainWindow::on_add_note_clicked()
 {
-    QString name=ui->note_name->toPlainText();
-    QString input=ui->note_input->toPlainText();
+    QString name = ui->note_name->text();
+    QString input = ui->note_input->toPlainText();
 
-    if(name=="" || input=="")
+    if(name == "" || input == "")
     {
         return;
     }
@@ -175,5 +176,6 @@ void MainWindow::open_notes()
 {
     QString toOpen = QFileDialog::getOpenFileName(this, ("Open Notes"), "/home", ("Notes Files (*.txt)"));
         load_file(toOpen);
-    }
+}
+
 
