@@ -49,6 +49,7 @@ void MainWindow::on_save_file_clicked()
     }
 
     ui->sf_name->clear();
+    ui->notes_list->clear();
     }
 
     else
@@ -85,7 +86,7 @@ void MainWindow::load_file(const QString &path)
                 break;
             }
             s_list.append(line2);
-            note.insert(line2, line3);
+            note.insert(line2, line3.simplified());
             line3 = "";
         }
         ui->notes_list->addItems(s_list);
