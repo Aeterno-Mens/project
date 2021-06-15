@@ -21,6 +21,8 @@ MainWindow::~MainWindow()
 }
 
 //функция сохранения файла заметок с названием вводимым в приложении
+//по итогу когда решил кое-что перепроверить вечером, обнаружил что старый способ сохранения, открытия ломался, стоило ввести в заметку текст с абзацами
+//так что пришлось поменять так как по итогу получился не особо функциональный проект, так как заметки в одну строку это такое себе
 void MainWindow::on_save_file_clicked()
 {
 
@@ -35,8 +37,8 @@ void MainWindow::on_save_file_clicked()
         for(auto i = 0; i <s_list.size(); i++)
         {
             QString text=s_list[i];
-            value<<text+"\n"+"¬"+"\n";
-            value<<note.value(text)+"\n"+"¬"+"\n";
+            value<<text+"\n"+"»"+"\n";
+            value<<note.value(text)+"\n"+"»"+"\n";
         }
 
         file.close();
@@ -75,9 +77,12 @@ void MainWindow::load_file(const QString &path)
         while (!value.atEnd())
         {
             line2 = line1.simplified();
+
+            //пропускаем специальный символ
             line1 = value.readLine();
+
             line1 = value.readLine();
-            while(line1!="¬")
+            while(line1!="»")
             {
                 line3 += line1+'\n';
                 line1 = value.readLine();
@@ -85,7 +90,10 @@ void MainWindow::load_file(const QString &path)
             s_list.append(line2);
             note.insert(line2, line3);
             line3 = "";
+
+            //пропускаем строку со специальным символом чтобы в следующий раз получить уже название следующей заметки
             line1 = value.readLine();
+
         }
         ui->notes_list->addItems(s_list);
         file.close();
