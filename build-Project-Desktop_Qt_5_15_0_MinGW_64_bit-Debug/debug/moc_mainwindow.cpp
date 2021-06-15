@@ -36,8 +36,8 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 10), // "open_notes"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 20), // "on_save_file_clicked"
-QT_MOC_LITERAL(4, 44, 4), // "path"
-QT_MOC_LITERAL(5, 49, 9), // "load_file"
+QT_MOC_LITERAL(4, 44, 9), // "load_file"
+QT_MOC_LITERAL(5, 54, 4), // "path"
 QT_MOC_LITERAL(6, 59, 19), // "on_add_note_clicked"
 QT_MOC_LITERAL(7, 79, 22), // "on_delete_note_clicked"
 QT_MOC_LITERAL(8, 102, 32), // "on_notes_list_currentTextChanged"
@@ -47,7 +47,7 @@ QT_MOC_LITERAL(11, 168, 4) // "arg1"
 
     },
     "MainWindow\0open_notes\0\0on_save_file_clicked\0"
-    "path\0load_file\0on_add_note_clicked\0"
+    "load_file\0path\0on_add_note_clicked\0"
     "on_delete_note_clicked\0"
     "on_notes_list_currentTextChanged\0text\0"
     "on_search_input_textChanged\0arg1"
@@ -69,17 +69,17 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   49,    2, 0x0a /* Public */,
-       3,    1,   50,    2, 0x08 /* Private */,
-       5,    1,   53,    2, 0x08 /* Private */,
-       6,    0,   56,    2, 0x08 /* Private */,
-       7,    0,   57,    2, 0x08 /* Private */,
-       8,    1,   58,    2, 0x08 /* Private */,
-      10,    1,   61,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    1,   51,    2, 0x08 /* Private */,
+       6,    0,   54,    2, 0x08 /* Private */,
+       7,    0,   55,    2, 0x08 /* Private */,
+       8,    1,   56,    2, 0x08 /* Private */,
+      10,    1,   59,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
-    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    9,
@@ -95,7 +95,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->open_notes(); break;
-        case 1: _t->on_save_file_clicked((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 1: _t->on_save_file_clicked(); break;
         case 2: _t->load_file((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 3: _t->on_add_note_clicked(); break;
         case 4: _t->on_delete_note_clicked(); break;
